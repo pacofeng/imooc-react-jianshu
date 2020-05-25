@@ -5,8 +5,8 @@ redux是视图层框架，把所有数据都放在store之中，每个组件都�
 2. action creators: 借书 (语句的表达，数据的传递)
 3. store: 图书馆管理员 (没办法记住所有书籍的存储情况)
 4. reducers:图书馆管理员的记录本 (要借什么书，先查有没有，要还的书查一下放到某个位置)
-借书的人~我要借一本书~图书管理员听见~查阅reducers手册~去store找书~把对应的书给借书人
-
+借书的人 => 我要借一本书 => 图书管理员听见 => 查阅reducers手册 => 去store找书~把对应的书给借书人
+![Test Image 1](https://raw.githubusercontent.com/pacofeng/jianshu/master/todolist-redux/src/img/redux_flow.png)
 
 
 ## 设置redux
@@ -41,6 +41,7 @@ https://github.com/zalmoxisus/redux-devtools-extension
 2. 使用了中间件(redux-thunk)，action可以是一个函数，通过store.dispatch将action函数传给store 
 3. store接收到action后进行判断，如果action是函数，则会执行调用对应的函数，反之是对象，会调动对应的对象返回值 
 4. action是函数时，内部先进行函数操作，之后去改变store中的数据(state)，函数内部可创建一个action对象，外部action这个函数默认接收store的dispatch方法，因此直接调用dispatch方法将内部action对象传给store以便更新数据
+```
 export const getTodoListAction = () => {
     return (dispatch) => {
         axios.get('http://localhost:8888/todolist.json').then((res) => {
@@ -51,11 +52,11 @@ export const getTodoListAction = () => {
         });
     }
 };
-
+```
 
 ## redux data flow
 中间件在action和store之间，引入中间件后，action可以是函数。如果dispatch接受到的参数是对象，会直接传给store，如果是函数，会先执行再传值。
-
+![Test Image 2](https://raw.githubusercontent.com/pacofeng/jianshu/master/todolist-redux/src/img/redux_data_flow.png)
 
 
 ## react-redux
