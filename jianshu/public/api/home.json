@@ -1,0 +1,63 @@
+{
+	"success": true,
+	"data": {
+		"topicList": [{
+			"id": 1,
+			"title": "社会热点",
+			"imgUrl": "//upload.jianshu.io/collections/images/261938/man-hands-reading-boy-large.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/64/h/64"
+		}, {
+			"id": 2,
+			"title": "手绘",
+			"imgUrl": "//upload.jianshu.io/collections/images/21/20120316041115481.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/64/h/64"
+		}, {
+			"id": 3,
+			"title": "读书",
+			"imgUrl": "//upload.jianshu.io/collections/images/4/sy_20091020135145113016.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/120/h/120/format/webp"
+		}, {
+			"id": 4,
+			"title": "IT",
+			"imgUrl": "//upload.jianshu.io/collections/images/14/6249340_194140034135_2.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/120/h/120/format/webp"
+		}, {
+			"id": 5,
+			"title": "美食",
+			"imgUrl": "//upload.jianshu.io/collections/images/30/IMG_2226.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/120/h/120/format/webp"
+		}, {
+			"id": 6,
+			"title": "自然科普",
+			"imgUrl": "//upload.jianshu.io/collections/images/76/12.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/120/h/120/format/webp"
+		}, {
+			"id": 7,
+			"title": "产品",
+			"imgUrl": "//upload.jianshu.io/collections/images/264569/2.pic.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/120/h/120/format/webp"
+		}],
+		"articleList": [{
+			"id": 1,
+			"title": "生个女孩就是成功人士",
+			"desc": "如今在农村，男多女少的现象越来越严重，前几年听说石家庄附近的三十多岁男孩没有老婆的很多，如今我们附近的村子，男孩三十左右的没有成家的也很多。 家...",
+			"imgUrl": "http://upload-images.jianshu.io/upload_images/6171276-3304c2681c7b7995.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240"
+		}, {
+			"id": 2,
+			"title": "胡歌12年后首谈车祸：既然活下来了，就不能白白活着",
+			"desc": "文/麦大人 01 胡歌又刷屏了。 近日他上了《朗读者》，而这一期的主题是“生命”，他用磁性的嗓音，朗读了一段《哈姆雷特》中的经典独白，相当震撼：...",
+			"imgUrl": "http://upload-images.jianshu.io/upload_images/3957486-804f445327b51f58.png?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240"
+		}, {
+			"id": 3,
+			"title": "Vol. 4男女大不同之性与爱",
+			"desc": "女人，因爱而性 男人，却可以因性而爱 更或者，他可以性却不一定爱 所以，当男人和女人发生争执，过了那个点，男人可以继续和女人性 女人却不这样，因...",
+			"imgUrl": "http://upload-images.jianshu.io/upload_images/19505420-517e91a5a7c6bf32?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240"
+		}],
+		"recommendList": [{
+			"id": 1,
+			"imgUrl": "http://cdn2.jianshu.io/assets/web/banner-s-club-aa8bdf19f8cf729a759da42e4a96f366.png"
+		}, {
+			"id": 2,
+			"imgUrl": "http://cdn2.jianshu.io/assets/web/banner-s-7-1a0222c91694a1f38e610be4bf9669be.png"
+		}, {
+			"id": 3,
+			"imgUrl": "http://cdn2.jianshu.io/assets/web/banner-s-5-4ba25cf5041931a0ed2062828b4064cb.png"
+		}, {
+			"id": 4,
+			"imgUrl": "http://cdn2.jianshu.io/assets/web/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7.png"
+		}]
+	}
+}
