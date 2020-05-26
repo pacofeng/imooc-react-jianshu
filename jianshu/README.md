@@ -1,68 +1,71 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## styled-components
+```
+import { createGlobalStyle } from 'styled-components';
 
-## Available Scripts
+export const GlobalStyle = createGlobalStyle`………`;
+```
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { GlobalStyle } from './style.js';
+import App from './App';
 
-In the project directory, you can run:
+ReactDOM.render(
+    <React.StrictMode>
+        <GlobalStyle/>
+        <App />
+    </React.StrictMode>,
+    document.getElementById('root')
+);
+```
 
-### `yarn start`
+## combineReducers:
+随着项目建设，如果将所有变量和逻辑都写在reducer中，会导致reducer文件变得臃肿且逻辑复杂。所以需要对reducer进行拆分。 使用"combineReducers"函数，对多个reducer进行整个，然后引出。 
+import { combineReducers } from 'redux';
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+import headerReducer from '../common/header/store/reducer';
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+export default combineReducers({
+    header: headerReducer
+});
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## immutable
+1. immutable库提供一个fromJS方法，可以把一个JS对象转换为immutable（不可变）对象
+2. 使用immutable.js之后，不能用“.”访问store中的对象，要使用get()方法
+3. 使用immutable.js之后，修改store中的数据时，要使用set方法
+4. immutable对象的set方法，会结合之前immutable对象的值和设置的值，返回一个全新的对象，并没有改变原始的state
+```
+import * as actionTypes from './actionTypes';
+import { fromJS } from 'immutable';
 
-### `yarn build`
+const defaultState = fromJS({
+    focused: false
+});
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+export default (state = defaultState, action) => {
+    switch(action.type) {
+        case actionTypes.SEARCH_FOCUS:
+            return state.set('focused', true);
+        case actionTypes.SEARCH_BLUR:
+            return state.set('focused', false);    
+        default:
+            return state;
+    }
+};
+```
+redux-immutable: 把外层store／index.js 中的 commbineReducer 引入的库从redux 改成 redux-immutable
+state.getIn(["header","focused"]) 等价于 state.get("header").get("focused")
+ ```
+import { combineReducers } from 'redux-immutable';
+import { reducer as headReducer } from '../common/header/store';
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+export default combineReducers({
+    header: headReducer
+});
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## react-loadable:
+异步组件优化 
+首页加载所有js文件，首次渲染加载过慢问题，react-loadable 模块可以解决此问题，使组件异步加载 
+使用方法： 引入react-loadable组件，并在跟路由中组件路径加上为loadable.js层, 此时在组件里需要withRouter方法改写组件，才能正确获取原来的参数
