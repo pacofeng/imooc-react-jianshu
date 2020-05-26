@@ -21,6 +21,7 @@ ReactDOM.render(
 
 ## combineReducers:
 随着项目建设，如果将所有变量和逻辑都写在reducer中，会导致reducer文件变得臃肿且逻辑复杂。所以需要对reducer进行拆分。 使用"combineReducers"函数，对多个reducer进行整个，然后引出。 
+```
 import { combineReducers } from 'redux';
 
 import headerReducer from '../common/header/store/reducer';
@@ -28,7 +29,7 @@ import headerReducer from '../common/header/store/reducer';
 export default combineReducers({
     header: headerReducer
 });
-
+```
 
 ## immutable
 1. immutable库提供一个fromJS方法，可以把一个JS对象转换为immutable（不可变）对象
