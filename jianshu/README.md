@@ -55,7 +55,8 @@ export default (state = defaultState, action) => {
     }
 };
 ```
-redux-immutable: 把外层store／index.js 中的 commbineReducer 引入的库从redux 改成 redux-immutable
+## redux-immutable
+把外层store／index.js 中的 commbineReducer 引入的库从redux 改成 redux-immutable
 state.getIn(["header","focused"]) 等价于 state.get("header").get("focused")
  ```
 import { combineReducers } from 'redux-immutable';
